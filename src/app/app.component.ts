@@ -3,6 +3,10 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Observable } from 'rxjs/Obserbable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
 import { TabsPage } from '../pages/tabs/tabs';
 
 

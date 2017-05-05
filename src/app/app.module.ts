@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Http } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
@@ -26,8 +26,9 @@ import { TabsPage } from '../pages/tabs/tabs';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
-    //What is this?()
+    IonicStorageModule.forRoot(),
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

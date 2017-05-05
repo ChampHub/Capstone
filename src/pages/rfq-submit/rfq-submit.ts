@@ -1,33 +1,27 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { Storage } from '@ionic/storage';
+import { CustomerService } from '../../providers/customer-service';
 
-// import { CustomerService } from '../providers/customer-service/customer-service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-/**
- * Generated class for the RfqSubmit page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage({
   name: 'rfq-submit',
 
-  /* 
-  segment: 'rfq-submit/:id',
-  
-  defaultHistory: 'page-home' 
-  */
 
 })
 
 @Component({
   selector: 'page-rfq-submit',
   templateUrl: 'rfq-submit.html',
+  providers: [
+    CustomerService
+  ]
 })
 export class RfqSubmit {
   bizName;
@@ -35,15 +29,18 @@ export class RfqSubmit {
   cityName;
   stateName;
   zipCode;
+  itemName;
+  itemQuantity;
+  targetPrice;
+  purchNotes;
   myArray = [];
-  custType;
+  custType = "customerNumber";
+  customerNumber;
+  customers: any;
+  id: any;
 
-  // static get parameters() {
-  //       return [[Http]];
-  //   }
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,) {
-    //this.RfqSubmit.bizName;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private http: Http,
+    public customerService: CustomerService) {
   }
 
   ionViewDidLoad() {
@@ -53,20 +50,18 @@ export class RfqSubmit {
   navToRfqFulfill(myRfq: string) {
     this.navCtrl.push('rfq-fulfill', {
       id: 5678, bizName: this.bizName, custName: this.custName,
-      cityName: this.cityName, stateName: this.stateName
+      cityName: this.cityName, stateName: this.stateName,
     });
-    // this.storage.set("rfqSave", myRfq);
-    // this.myArray.push(myRfq);
-    // this.storage.set("rfqSave", this.myArray);
   }
 
   getCustomerNumber() {
-    //  getCustomer(customerNumber) {
-    //     var url = 'https://champquotes.isys4283.walton.uark.edu/api/customers';
-    //     var response = this.http.get(url).map(res => res.json());
-    //     return response;
+    console.log("changed");
+    this.customerService.getCustomer().subscribe(
+      data => {
+        this.customers = data;
+        console.log(data);
+      });
   }
-
 
   printRadioValue() {
     console.log(this.custType);

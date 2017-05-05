@@ -1,15 +1,7 @@
-<!--
-  Generated template for the RfqSubmit page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>RFQ Submit Form</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <!--Change radio to ?button, should be larger/easier for mobile
@@ -18,22 +10,21 @@
   <ion-list-header>Request for Quote Form</ion-list-header>
   <ion-list radio-group [(ngModel)]="custType" (ionChange)="printRadioValue()">
     <ion-item>
-      <ion-radio value="customerNumber" item-left checked></ion-radio>
+      <ion-radio value="existingCustomer" item-left></ion-radio>
       <ion-label color="primary"> Customer Number </ion-label>
-      <!--<ion-label color="primary"> Customer Number </ion-label>
-      -->
     </ion-item>
-    
-      <ion-item *ngIf="custType=='customerNumber'">
-        <ion-input type="text" placehoder="Customer Number" (input)="getCustomerNumber()"></ion-input>
-      </ion-item>
-   
+
     <ion-item>
       <ion-radio value="prospect" item-left></ion-radio>
       <ion-label color="primary">Prospect</ion-label>
     </ion-item>
   </ion-list>
   <ion-list>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input type="text" placeholder="Customer Number" name="id" [(ngModel)]="id" (upkey)="getCustomerNumber()"></ion-input>
+    </ion-item>
+    <ion-item *ngFor="let customer of customers">
+    </ion-item>
     <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Business Name" type='text' name='bizName' [(ngModel)]='bizName'></ion-input>
     </ion-item>
@@ -48,35 +39,55 @@
     </ion-item>
     <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Zip" type="text" name='zipCode' [(ngModel)]='zipCode'></ion-input>
-      <!--prefer no form visible initially
-    -->
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Requested Item" type="text" name='itemName' [(ngModel)]='itemName'></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Amount" type="text" name='itemQuantity' [(ngModel)]='itemQuantity'></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Target Price" type="text" name='targetPrice' [(ngModel)]='targetPrice'></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="custType=='prospect'">
+      <ion-label>Notes</ion-label>
+      <ion-textarea placeholder="Enter a Note to Purchasing" type="text" name='purchNotes' [(ngModel)]='purchNotes'></ion-textarea>
+    </ion-item>
+    </ion-list>
+    <ion-list>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Business Name" readonly=true value='{{ customer.last_name }}'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Contact Name" readonly=true value='{{ first_name }}'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter City" readonly=true value='{{ id }}'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter State" readonly=true value='{{ id }}'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Zip" readonly=true value='{{ id }}'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Requested Item" type="text" name='itemName' [(ngModel)]='itemName'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Amount" type="text" name='itemQuantity' [(ngModel)]='itemQuantity'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
+      <ion-input placeholder="Enter Target Price" type="text" name='targetPrice' [(ngModel)]='targetPrice'></ion-input>
+    </ion-item>
+    <ion-item *ngIf="custType=='existingCustomer'">
       <ion-label>Notes</ion-label>
       <ion-textarea placeholder="Enter a Note to Purchasing" type="text" name='purchNotes' [(ngModel)]='purchNotes'></ion-textarea>
     </ion-item>
   </ion-list>
+  <ion-item *ngIf="custType=='existingCustomer'">
   <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
-</ion-content>
-<!--<ion-list>
-
-  <ion-item>
-    <ion-input type="text" name="myInput" [(ngModel)]="myInput"></ion-input>
   </ion-item>
-  <ion-list>
-    <button ion-button (click)="setValue(myInput)">Save Info</button>
-  </ion-list>
-
-
-  <ion-item *ngFor="let item of myArray">{{ item }} </ion-item>
-</ion-list>
--->
+  <ion-item *ngIf="custType=='prospect'">
+  <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
+  </ion-item>
+</ion-content>
