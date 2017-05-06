@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-
-/**
- * Generated class for the RfqFulfill page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage({
   name: 'rfq-fulfill',
 })
@@ -30,6 +23,7 @@ export class RfqFulfill {
   salesNotes;
   itemName;
   itemQuantity;
+  customer;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

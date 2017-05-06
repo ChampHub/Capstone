@@ -36,7 +36,7 @@ export class RfqSubmit {
   myArray = [];
   custType = "customerNumber";
   customerNumber;
-  customers: any;
+  customer: any;
   id: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private http: Http,
@@ -50,15 +50,17 @@ export class RfqSubmit {
   navToRfqFulfill(myRfq: string) {
     this.navCtrl.push('rfq-fulfill', {
       id: 5678, bizName: this.bizName, custName: this.custName,
-      cityName: this.cityName, stateName: this.stateName,
+      cityName: this.cityName, stateName: this.stateName, customer: this.customer,
+      itemName: this.itemName, itemQuantity: this.itemQuantity, targetPrice: this.targetPrice, purchNotes: this.purchNotes
     });
   }
 
   getCustomerNumber() {
     console.log("changed");
-    this.customerService.getCustomer().subscribe(
+    this.customerService.getCustomer(this.id).subscribe(
       data => {
-        this.customers = data;
+        console.log("data returned");
+        this.customer = data;
         console.log(data);
       });
   }

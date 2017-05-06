@@ -9,9 +9,9 @@ export class CustomerService {
     console.log('Hello CustomerService Provider');
   }
 
-  getCustomer() {
+  getCustomer(id) {
     console.log("called getCustomer");
-    var url = 'https://champquotes.isys4283.walton.uark.edu/api/customers';
+    var url = 'https://champquotes.isys4283.walton.uark.edu/api/customers/' + id;
     return this.http.get(url).map(res => res.json());
   }
 }

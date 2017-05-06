@@ -21,9 +21,7 @@
   </ion-list>
   <ion-list>
     <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input type="text" placeholder="Customer Number" name="id" [(ngModel)]="id" (upkey)="getCustomerNumber()"></ion-input>
-    </ion-item>
-    <ion-item *ngFor="let customer of customers">
+      <ion-input type="text" placeholder="Customer Number" name="id" [(ngModel)]="id" (keyup)="getCustomerNumber()"></ion-input>
     </ion-item>
     <ion-item *ngIf="custType=='prospect'">
       <ion-input placeholder="Enter Business Name" type='text' name='bizName' [(ngModel)]='bizName'></ion-input>
@@ -53,22 +51,22 @@
       <ion-label>Notes</ion-label>
       <ion-textarea placeholder="Enter a Note to Purchasing" type="text" name='purchNotes' [(ngModel)]='purchNotes'></ion-textarea>
     </ion-item>
-    </ion-list>
-    <ion-list>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Business Name" readonly=true value='{{ customer.last_name }}'></ion-input>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngIf="custType=='existingCustomer' && customer">
+      <ion-input placeholder="Business Name" readonly=true value='{{ customer.last_name }} Technology Inc'></ion-input>
     </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Contact Name" readonly=true value='{{ first_name }}'></ion-input>
+    <ion-item *ngIf="custType=='existingCustomer' && customer">
+      <ion-input placeholder="Contact Name" readonly=true value='{{ customer.first_name }} {{ customer.last_name }}'></ion-input>
     </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter City" readonly=true value='{{ id }}'></ion-input>
+    <ion-item *ngIf="custType=='existingCustomer' && customer">
+      <ion-input placeholder="Phone" readonly=true value='{{ customer.phone }}'></ion-input>
     </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter State" readonly=true value='{{ id }}'></ion-input>
+    <ion-item *ngIf="custType=='existingCustomer' && customer">
+      <ion-input placeholder="Email" readonly=true value='{{ customer.email }}'></ion-input>
     </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Zip" readonly=true value='{{ id }}'></ion-input>
+    <ion-item *ngIf="custType=='existingCustomer' && customer">
+      <ion-input placeholder="Last Update" readonly=true value='Last Update: {{ customer.updated_at }}'></ion-input>
     </ion-item>
     <ion-item *ngIf="custType=='existingCustomer'">
       <ion-input placeholder="Enter Requested Item" type="text" name='itemName' [(ngModel)]='itemName'></ion-input>
@@ -85,9 +83,9 @@
     </ion-item>
   </ion-list>
   <ion-item *ngIf="custType=='existingCustomer'">
-  <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
+    <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
   </ion-item>
   <ion-item *ngIf="custType=='prospect'">
-  <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
+    <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
   </ion-item>
 </ion-content>

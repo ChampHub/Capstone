@@ -17,37 +17,27 @@
   <ion-list-header>Request for Quote from Sales</ion-list-header>
   <ion-list>
     <ion-item>
-      <ion-label color="primary">Salesperson Name </ion-label>
+      <ion-label color="primary">Customer Number: </ion-label>
+      <ion-input placeholder="Customer Number" readonly=true value="{{ bizName }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Salesperson Number</ion-label>
-      <ion-input placeholder="Enter Customer Number"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Customer Number</ion-label>
-      <ion-input placeholder="Enter Customer Number" readonly=true value="{{ id }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Prospect</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Business Name </ion-label>
+      <ion-label color="primary">Business Name: </ion-label>
       <ion-input type="text" readonly=true value="{{ bizName }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Contact Name</ion-label>
+      <ion-label color="primary">Contact Name: </ion-label>
       <ion-input type='text' readonly=true value='{{ first_name }}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">City</ion-label>
+      <ion-label color="primary">Phone</ion-label>
       <ion-input type='text' readonly=true value='{{ cityName }}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">State</ion-label>
+      <ion-label color="primary">Email</ion-label>
       <ion-input type='text' readonly=true value='{{ stateName }}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Zip Code</ion-label>
+      <ion-label color="primary">Last Update: </ion-label>
       <ion-input type='text' readonly=true value='{{ zipCode }}'></ion-input>
     </ion-item>
     <ion-item>
