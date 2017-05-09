@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Customer } from '../../models/customer';
 
 /**
  * Generated class for the RfqComplete page.
@@ -27,6 +28,18 @@ export class RfqComplete {
   shipTime;
   custPrice;
   salesNotes;
+  itemName;
+  itemQuantity;
+  targetPrice;
+  purchNotes;
+  customer: Customer = {
+    first_name: "",
+    last_name: "",
+    id: "",
+    updated_at: "",
+    phone: "",
+    email: "",
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.bizName = navParams.get('bizName');
@@ -41,6 +54,17 @@ export class RfqComplete {
     this.shipTime = navParams.get('shipTime');
     this.custPrice = navParams.get('custPrice');
     this.salesNotes = navParams.get('salesNotes');
+    this.customer.first_name = navParams.get('first_name');
+    this.customer.last_name = navParams.get('last_name');
+    this.customer.phone = navParams.get('phone');
+    this.customer.email = navParams.get('email');
+    this.customer.updated_at = navParams.get('updated_at');
+    this.itemName = navParams.get('itemName');
+    this.itemQuantity = navParams.get('itemQuantity');
+    this.targetPrice = navParams.get('targetPrice');
+    this.purchNotes = navParams.get('purchNotes');
+    this.customer.id = navParams.get('id');
+
 
   }
 

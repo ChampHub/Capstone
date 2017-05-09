@@ -14,50 +14,67 @@
   <ion-list>
     <ion-item>
       <ion-label color="primary">Customer Number</ion-label>
-      <ion-input placeholder="Enter Customer Number"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Prospect</ion-label>
+      <ion-input readonly=true value='{{ this.customer.id }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Business Name </ion-label>
-      <ion-input type="text" readonly=true value="{{ bizName }}"></ion-input>
+      <ion-input type="text" readonly=true value="{{ this.customer.last_name }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Contact Name</ion-label>
-      <ion-input type='text' readonly=true value='{{ custName }}'></ion-input>
+      <ion-label color="primary">Contact First Name</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.first_name}}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">City</ion-label>
-      <ion-input type='text' readonly=true value='{{ cityName }}'></ion-input>
+      <ion-label color="primary">Contact Last Name</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.last_name}}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">State</ion-label>
-      <ion-input type='text' readonly=true value='{{ stateName }}'></ion-input>
+      <ion-label color="primary">Phone</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.phone }}'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Zip Code</ion-label>
-      <ion-input type='text' readonly=true value='{{ zipCode }}'></ion-input>
+      <ion-label color="primary">Email</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.email }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Last Update: </ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.updated_at }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Product</ion-label>
-      <ion-input type='text' readonly=true value='{{ itemName }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.itemName }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Quantity or Length</ion-label>
-      <ion-input type='text' readonly=true value='{{ itemQuantity }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.itemQuantity }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Delivery Time</ion-label>
-      <ion-input type='text' readonly=true value='{{ shipTime }}'></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Customer Price</ion-label>
-      <ion-input type='text' readonly=true value='{{ custPrice }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.shipTime }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Note to Sales</ion-label>
-      <ion-textarea type='text' readonly=true value='{{ salesNotes }}'></ion-textarea>
+      <ion-textarea type='text' readonly=true value='{{ this.salesNotes }}'></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Vendor Number</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.vendorNumber }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Vendor Name</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.vendorName }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Quantity or Length</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.itemQuantity }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Target Price</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.targetPrice }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Customer Price</ion-label>
+      <ion-input type='text' readonly=true value='{{ this.custPrice }}'></ion-input>
     </ion-item>
   </ion-list>
 </ion-content>

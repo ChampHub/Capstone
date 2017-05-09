@@ -13,9 +13,9 @@ export class HomePage {
   }
   navToRFQForm() {
     // go to the MyPage component
-    this.navCtrl.push('rfq-submit', { id: 1234 });
+    this.navCtrl.push('rfq-submit');
   }
   navToRFQHistory() {
-    this.navCtrl.push('rfq-history', { id: 3456 })
+    this.navCtrl.push('rfq-history')
   }
 }

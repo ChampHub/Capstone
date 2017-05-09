@@ -6,16 +6,29 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title item-center>Welcome to the RFQ Info Search</ion-title>
+  <ion-navbar item-center>
+    <ion-title>Welcome to the Completed Quote Info Search</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list-header>Request for Quote Search Engine</ion-list-header>
-    <ion-list>
+  <ion-list-header>Completed Quote Search Engine</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="SEARCH"></ion-input>
+    </ion-item>
+    <ion-item item-right>
+      <button ion-button (click)='navToFilter()'>Filter</button>
+    </ion-item>
+    <!--<ion-item>
+        <ion-input name="id" [(ngModel)]='id' value='getQuotes()'></ion-input>
+      </ion-item>-->
+    <ion-item>
+      <ion-input value='{{ this.customer.first_name }}'>
+      </ion-input>
+    </ion-item>
     <ion-item>
       <ion-label color="primary">Customer Number</ion-label>
       <ion-input placeholder="Enter Customer Number"></ion-input>
@@ -25,7 +38,7 @@
       <ion-input placeholder="Enter Business Name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Contact Name</ion-label>
+      <ion-label color="primary">Contact First Name</ion-label>
       <ion-input placeholder="Show Contact Name"></ion-input>
     </ion-item>
     <ion-item>
@@ -61,6 +74,6 @@
     <ion-item>
       <ion-label color="primary">Customer Price</ion-label>
     </ion-item>
-    </ion-list>
-    <button ion-button item-center (click)="navToRFQSearch()">SEARCH RFQ DATABASE</button>
-  </ion-content>
+  </ion-list>
+  <button ion-button item-center (click)="navToRFQSearch()">SEARCH RFQ DATABASE</button>
+</ion-content>

@@ -1,48 +1,44 @@
-<!--
-  Generated template for the RfqFulfill page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Welcome to the RFQ Fulfill Form</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content>
   <ion-list-header>Request for Quote from Sales</ion-list-header>
   <ion-list>
     <ion-item>
       <ion-label color="primary">Customer Number: </ion-label>
-      <ion-input placeholder="Customer Number" readonly=true value="{{ bizName }}"></ion-input>
+      <ion-input placeholder="Customer Number" readonly=true value="{{ this.customer.id }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Business Name: </ion-label>
-      <ion-input type="text" readonly=true value="{{ bizName }}"></ion-input>
+      <ion-input type="text" readonly=true value="{{ this.customer.last_name }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Contact Name: </ion-label>
-      <ion-input type='text' readonly=true value='{{ first_name }}'></ion-input>
+      <ion-label color="primary">Contact First Name: </ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.first_name }}'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Contact Last Name: </ion-label>
+      <ion-input type='text' readonly=true value='{{ this.customer.last_name }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Phone</ion-label>
-      <ion-input type='text' readonly=true value='{{ cityName }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.customer.phone }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Email</ion-label>
-      <ion-input type='text' readonly=true value='{{ stateName }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.customer.email }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Last Update: </ion-label>
-      <ion-input type='text' readonly=true value='{{ zipCode }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.customer.updated_at }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Product Needed</ion-label>
-      <ion-input type='text' readonly=true value='{{ itemName }}'></ion-input>
+      <ion-input type='text' readonly=true value='{{ this.itemName }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Quantity or Length</ion-label>
