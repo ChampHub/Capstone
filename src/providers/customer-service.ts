@@ -14,10 +14,9 @@ export class CustomerService {
     var url = 'https://champquotes.isys4283.walton.uark.edu/api/customers/' + id;
     return this.http.get(url).map(res => res.json());
   }
-
-  getQuotes(id) {
-    console.log("called getQuotes");
-    var url = 'https://champquotes.isys4283.walton.uark.edu/api/quotes/' + id;
+  getMyCustomer() {
+    console.log("called getMyCustomer");
+    var url = 'https://champquotes.isys4283.walton.uark.edu/api/customers/';
     return this.http.get(url).map(res => res.json());
   }
 }

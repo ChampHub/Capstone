@@ -4,8 +4,6 @@
   </ion-navbar>
 </ion-header>
 
-<!--Change radio to ?button, should be larger/easier for mobile
--->
 <ion-content>
   <ion-list-header>Request for Quote Form</ion-list-header>
   <ion-list radio-group [(ngModel)]="custType" (ionChange)="printRadioValue()">
@@ -55,38 +53,6 @@
       <ion-textarea placeholder="Enter a Note to Purchasing" type="text" name='purchNotes' [(ngModel)]='purchNotes'></ion-textarea>
     </ion-item>
   </ion-list>
-  <!--
-    <ion-list>
-    <ion-item *ngIf="custType=='existingCustomer' && customer">
-      <ion-input placeholder="Business Name" [readonly] = "custType != 'prospect'" value='{{ customer.last_name }} Technology Inc'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer' && customer">
-      <ion-input placeholder="Contact Name" readonly=true value='{{ customer.first_name }} {{ customer.last_name }}'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer' && customer">
-      <ion-input placeholder="Phone" readonly=true value='{{ customer.phone }}'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer' && customer">
-      <ion-input placeholder="Email" readonly=true value='{{ customer.email }}'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer' && customer">
-      <ion-input placeholder="Last Update" readonly=true value='Last Update: {{ customer.updated_at }}'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Requested Item" type="text" name='itemName' [(ngModel)]='itemName'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Amount" type="text" name='itemQuantity' [(ngModel)]='itemQuantity'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-input placeholder="Enter Target Price" type="text" name='targetPrice' [(ngModel)]='targetPrice'></ion-input>
-    </ion-item>
-    <ion-item *ngIf="custType=='existingCustomer'">
-      <ion-label>Notes</ion-label>
-      <ion-textarea placeholder="Enter a Note to Purchasing" type="text" name='purchNotes' [(ngModel)]='purchNotes'></ion-textarea>
-    </ion-item>
-  </ion-list>
-  -->
   <ion-item *ngIf="custType">
     <button ion-button (click)="navToRfqFulfill()">SUBMIT TO PURCHASING</button>
   </ion-item>

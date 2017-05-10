@@ -28,7 +28,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpModule,
-    JsonpModule
+    JsonpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
