@@ -7,25 +7,28 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <!--<ion-list>
     <ion-item *ngFor="let quote of quotes">
-      ID: {{ quote.id }} Price: {{ quote.price }}
+      ID: {{ quote.id }} Price: {{ quote.price }} {{ this.customer.phone }}
     </ion-item>
     <ion-item *ngFor='let customer of customers'>
       Product: {{ customer.phone }}
     </ion-item>
+  </ion-list>-->
 
-
-  </ion-list>
-  <table border="1">
-    <colgroup span="2" style="background-color:orange">
-    </colgroup>
-    <tr>
-      <td *ngFor='let quote of quotes'>{{ quote.id }}</td>
-      <td *ngFor='let product of products'>{{ product.name }}</td>
-      <td>column 3</td>
-    </tr>
+  <table>
+    
+      <!--<col *ngFor='let quote of quotes'>{{ quote.id }}</col>-->
+      <!--<col *ngFor='let product of products'>{{ product.name }}</col>-->
+      
   </table>
+
+  <ul>
+  <li *ngFor='let quote of quotes'>{{ this.quote.id }}</li>
+    <ul *ngFor ='let product of products'>
+    <li>{{ this.product.phone }}</li>
+    </ul>
+</ul>
 
   
 </ion-content>
