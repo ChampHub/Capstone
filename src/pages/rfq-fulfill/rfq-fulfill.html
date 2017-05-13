@@ -1,7 +1,6 @@
-
 <ion-header>
   <ion-navbar>
-    <ion-title>Welcome to the RFQ Fulfill Form</ion-title>
+    <ion-title>Procurement</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,10 +10,6 @@
     <ion-item>
       <ion-label color="primary">Customer Number: </ion-label>
       <ion-input placeholder="Customer Number" readonly=true value="{{ this.customer.id }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Business Name: </ion-label>
-      <ion-input type="text" readonly=true value="{{ this.customer.last_name }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Contact First Name: </ion-label>
@@ -31,10 +26,6 @@
     <ion-item>
       <ion-label color="primary">Email</ion-label>
       <ion-input type='text' readonly=true value='{{ this.customer.email }}'></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary">Last Update: </ion-label>
-      <ion-input type='text' readonly=true value='{{ this.customer.updated_at }}'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary">Product Needed</ion-label>
@@ -83,6 +74,8 @@
       <ion-label>Note to Sales</ion-label>
       <ion-textarea placeholder="Enter a Note to Sales" type="text" name='salesNotes' [(ngModel)]='salesNotes'></ion-textarea>
     </ion-item>
+    <ion-item>
+      <button ion-button block large round (click)="navToRfqComplete()">COMPLETE RFQ</button>
+    </ion-item>
   </ion-list>
-  <button ion-button item-center (click)="navToRfqComplete()">COMPLETE RFQ</button>
 </ion-content>

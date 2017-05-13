@@ -1,16 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-item>
-      <ion-title>Welcome to the RFQ App</ion-title>
+      <ion-title>The RFQ App</ion-title>
     </ion-item>
   </ion-navbar>
 </ion-header>
 
 
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <button ion-button block large round (click)='navToRFQForm()'>Request A Quote</button>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <button ion-button block large round (click)='navToRFQHistory()'>See Quote History</button>
+    </ion-item>
+  </ion-card>
+  
 
-  <ion-buttons>
-      <button ion-button (click)='navToRFQForm()'>NEW RFQ</button>
-   
-      <button ion-button (click)='navToRFQHistory()'>RFQ HISTORY</button>
-      
-  </ion-buttons>
+</ion-content>

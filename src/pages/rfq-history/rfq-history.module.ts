@@ -4,6 +4,7 @@ import { RfqHistory } from './rfq-history';
 import { CustomerService } from '../../providers/customer-service';
 import { ProductService } from '../../providers/product-service';
 import { QuoteService } from '../../providers/quote-service';
+import { QuoteHistoryService } from '../../providers/quote-history-service';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { QuoteService } from '../../providers/quote-service';
   providers: [
     CustomerService,
     ProductService,
-    QuoteService
+    QuoteService,
+    QuoteHistoryService
   ]
 })
 export class RfqHistoryModule {}

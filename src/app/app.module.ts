@@ -36,7 +36,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

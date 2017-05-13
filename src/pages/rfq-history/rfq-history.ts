@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
 
+import { QuoteHistoryService } from '../../providers/quote-history-service';
 import { CustomerService } from '../../providers/customer-service';
 import { QuoteService } from '../../providers/quote-service';
-import { ProductService } from '../../providers/product-service'
+import { ProductService } from '../../providers/product-service';
 import { Customer } from '../../models/customer';
 import { Product } from '../../models/product';
 import { Quote } from '../../models/quote';
@@ -22,7 +23,8 @@ import 'rxjs/add/operator/map';
   providers: [
     CustomerService,
     QuoteService,
-    ProductService
+    ProductService,
+    QuoteHistoryService
   ]
 })
 export class RfqHistory implements OnInit {
@@ -55,12 +57,12 @@ export class RfqHistory implements OnInit {
     image: "",
   };
   customers;
-  
+
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public quoteService: QuoteService,
-    public customerService: CustomerService, public productService: ProductService) {
+    public customerService: CustomerService, public productService: ProductService, public quoteHistoryService: QuoteHistoryService) {
     this.customer.phone = navParams.get('phone');
     this.customer.email = navParams.get('email');
   }
@@ -74,27 +76,12 @@ export class RfqHistory implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
-    //Observable.forkjoin
-    this.quoteService.getQuotes().subscribe(
-      data => {
-        console.log("data returned");
-        this.quotes = data;
-        console.log(data)
-      });
-    this.customerService.getMyCustomer().subscribe(
-      data => {
-        console.log("data returned");
-        this.customers = data;
-        console.log(data)
-      });
-    this.productService.getProducts().subscribe(
-      data => {
-        console.log("data returned");
-        this.products = data;
-        console.log(data)
-      });
-  };
+    this.quoteHistoryService.getQuotes().subscribe(data => { 
+      this.quotes = data;
+    });
+
+
+  }
 }
 
 

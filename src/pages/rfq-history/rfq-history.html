@@ -1,34 +1,20 @@
 <ion-header>
   <ion-navbar item-center>
-    <ion-title>Welcome to the Completed Quote Info Search</ion-title>
+    <ion-title>Completed Quote Info</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
+  <ion-card *ngFor='let quote of quotes'>
+    <img src='{{ quote.product.image }}'>
+    <ion-card-title>
+      Customer: {{ quote.customer.last_name }}, {{ quote.customer.first_name }}
+    </ion-card-title>
+    <ion-card-content>
+      Product: {{ quote.product.name }}
+      <p>
+        Price: ${{ quote.price }}
+      </p>
+    </ion-card-content>
+  </ion-card>
 
-  <!--<ion-list>
-    <ion-item *ngFor="let quote of quotes">
-      ID: {{ quote.id }} Price: {{ quote.price }} {{ this.customer.phone }}
-    </ion-item>
-    <ion-item *ngFor='let customer of customers'>
-      Product: {{ customer.phone }}
-    </ion-item>
-  </ion-list>-->
-
-  <table>
-    
-      <!--<col *ngFor='let quote of quotes'>{{ quote.id }}</col>-->
-      <!--<col *ngFor='let product of products'>{{ product.name }}</col>-->
-      
-  </table>
-
-  <ul>
-  <li *ngFor='let quote of quotes'>{{ this.quote.id }}</li>
-    <ul *ngFor ='let product of products'>
-    <li>{{ this.product.phone }}</li>
-    </ul>
-</ul>
-
-  
 </ion-content>
